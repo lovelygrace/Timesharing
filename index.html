@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <title>Multiprogramming</title>
+</head>
+<body>
+  <div id="app">
+    <div>
+        <div class="header">
+            <button v-on:click="start" :disabled="started==true">START</button>
+            <button v-on:click="reset" :disabled="started==false">RESET</button>
+            <label>Total number of Resources: <span>{{resourceList.length}}</span></label>
+            <label>Total number of Users: <span>{{userIds.length}}</span></label>
+        </div>
+        <div class="container">
+          <p class="table-header">Multiprogramming with Time Sharing</p>
+          <div class="tbl-head">
+            <table>
+              <thead>
+                <tr>
+                  <!-- <th width="10%" rowspan="1" class="noborder">USERS</th> -->
+                  <th width="13%" scope="col">RESOURCES</th>
+                  <th width="6%" scope="col">TOTAL USERS</th>
+                  <th width="10%" scope="col">CURRENT STATUS</th>
+                  <th width="10%" scope="col">CURRENT USER</th>
+                  <th width="10%" scope="col">TIME LEFT</th>
+                  <th scope="col" colspan="2">WAITLIST</th>
+                  <th width="9%" scope="col">FREE AFTER</th>
+                </tr>
+                <tr>
+                  <!-- <th class="noborder" width="10%"></th> -->
+                  <th width="13%"></th>
+                  <th width="6%"></th>
+                  <th width="10%"></th>
+                  <th width="10%"></th>
+                  <th width="10%"></th>
+                  <th>Users</th>
+                  <th>Waiting Time</th>
+                  <th width="9%"></th>
+                </tr>
+              </thead>
+            </table>
+          </div>
+          <div class="tbl-body">
+            <table>
+              <tbody v-for="res in resourceList">
+                <tr class="body-row">
+                  <!-- <td width="10%" class="noborder">
+                      <ul v-if="res.index == 0">
+                        <li v-for="j in userIds">User  {{j}}</li>
+                      </ul>
+                  </td> -->
+                  <!-- <td v-if="res.index == resourceList.length - 1" class="wborder"></td> -->
+                  <td width="13%">Resource   {{res.id}}</td>
+                  <td width="6%">{{res.totalUsers}}</td>
+                  <td width="10%">
+                    <!-- {{res.totalUsers}} -->
+                    <span v-if="res.status=='FREE'" style="color: #7E191B; font-weight: bold">{{res.status}}</span>
+                    <span v-else-if="res.status == ''">WAITING</span>
+                    <span v-else>BUSY</span>
+                  </td>
+                  <td width="10%">
+                    <span v-if="res.status=='FREE'" style="color: #7E191B; font-weight: bold">---</span>
+                    <span v-else-if="res.status == ''">---</span>
+                    <span v-else>{{res.status}}</span>
+                  </td>
+                  <td width="10%">
+                    <span v-if="res.status != '' && res.totalUsers > 0 && res.currUser != 0">{{res.currUser.time}}  seconds</span>
+                  </td>
+                  <td>
+                      <ul v-for="j in res.usersList">
+                          <!-- v-if="j.id != res.currUser.id" -->
+                        <li>
+                          <span v-if="j.id == res.currUser.id" style="color: #7E191B; font-weight: bold">User  {{ j.id }}  needs {{j.time}}  sec</span>
+                          <span v-else>User  {{ j.id }}  needs {{j.time}}  sec</span>
+                        </li>
+                      </ul>
+                  </td>
+                  <td>
+                      <ul v-for="j in res.usersList">
+                          <!-- v-if="j.id != res.currUser.id" -->
+                          <li>
+                            {{ j.wait }}  sec
+                          </li>
+                        </ul>
+                  </td>
+                  <td width="9%">{{res.totalTime}}  seconds</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+    </div>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://unpkg.com/vue/dist/vue.js "></script>
+  <script src="script.js" type="text/javascript " charset="utf-8 "></script>
+</body>
+</html>

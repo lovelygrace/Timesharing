@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css?family=Work+Sans');
+
+body {
+    background: #fbf7f5;
+    font: 14px/20px 'Work Sans', sans-serif;
+    color: black;
+}
+
+
+.container {
+    width: 1600px;
+    border-radius: 5px;
+    position: relative;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    height: 820px;
+    box-shadow: 10px 10px 25px #88888852;
+    /* background-color: #262626; */
+    background-color: white;
+    /* overflow-y: auto; */
+}
+
+.header {
+    top: 0;
+    right: 0;
+    width: 1000px;
+    height: 100%;
+    padding-left: 148px;
+    padding-bottom: 5px;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+.table-header {
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    width: 100%;
+    margin-bottom: 0;
+	/* padding: 10px; */
+	background-color: #7E191B;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+	/* border-top-left-radius: 10px;
+    border-top-right-radius: 10px; */
+}
+
+button {
+    color: #fff;
+    /* margin: auto; */
+    background-color: #7E191B;
+    font-size: 18px;
+    outline: none;
+    padding: 8px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    width: 105px;
+}
+
+button:hover {
+	background-color: #A45A52;
+}
+
+button:disabled {
+	background-color: black;
+	/* cursor: not-allowed;
+	pointer-events: none; */
+	color: #7c7c7c;
+}
+
+
+table {
+    border-color: #7E191B;
+    font-size: 18px;
+    border-collapse: collapse;
+    width: 100%;
+    table-layout: fixed;
+
+}
+
+table tr:nth-child(even){
+    background-color: #f2f2f2;
+}
+
+table tbody tr:nth-child(even){
+    background-color: #f2f2f2;
+}
+
+table tbody tr:hover {
+    background-color: #fbf7f5;
+}
+
+th[scope="col"] {
+    /* background-color: #696969; */
+    background-color: #fbf7f5;
+    color: black;
+    /* border: 1px solid rgb(190, 190, 190); */
+    padding: 10px;
+}
+
+.noborder {
+    border: 0;
+    background-color: #7E191B;
+    color: white;
+}
+
+.wborder {
+    border-bottom: 1;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: center;
+    padding: 8px;
+    margin: auto;
+}
+
+.tbl-body {
+    height: 680px;
+    overflow-x: auto;
+}
+
+ul {
+    list-style-type: square;
+}
+
+label {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    color: black;
+    font-size: 18px;
+    padding: 0 15px;
+}
+
+::-webkit-scrollbar {
+    width: 3px;
+} 
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+} 
+::-webkit-scrollbar-thumb {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+}
